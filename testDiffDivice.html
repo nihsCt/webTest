@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>TestDiffDivice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var viewport_width = $(window).width();
+            alert(viewport_width);
+            $('div').css("background-color", "#090");
+            if(viewport_width <= 480){
+                $('.block').css("width", viewport_width*9/12);
+                alert("<=480");
+            }
+            else if (viewport_width <= 854) {
+                $('.block').css("background-color", "#555");
+                $('.block').css("width", viewport_width/2);
+                alert(">854")
+            } else {
+                //$('.block').css("width", viewport_width/3);
+                $('.block').css("background-color", "#999");
+                $('.block').css("width", viewport_width/3);
+                alert("else");
+            }
+        })
+    </script>
+</head>
+<body>
+<div class="block">
+    <div>123</div>
+    <div>123</div>
+</div>
+<div class="block">
+    <div>123</div>
+    <div>123</div>
+</div>
+<div class="block">
+    <div>123</div>
+    <div>123</div>
+</div>
+</body>
+</html>

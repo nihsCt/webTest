@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script>
+        $(function() {
+            Highcharts.chart('container', {
+                title: {
+                    text: 'Monthly Average Temperature',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: '1: lie, 2: sit, 3: stand',
+                    x: -20
+                },
+                xAxis: {
+                    categories: ['12:00', '12:05', '12:10', '12:15', '12:20', '12:25',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    ]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Status'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    valueSuffix: ''
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'KK',
+                    data: [3.0, 2, 1, 3, 1, 1, 2, 1, 1, 1, 2, 3]
+                }]
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<table border="1" cellpadding="1" cellspacing="0" width="150%">
+    <script>
+        var i, j;
+        document.write("<tr>" + "<td align='middle'>--</td>");
+        for(i=2; i<24; i++){
+            document.write("<td align='middle'>" + i + "</td>");
+        }
+        for(i=2; i<24; i++){
+            document.write("<tr><td align='middle'> *" + i + "</td>");
+            for(j=2; j<24; j++){
+                document.write("<td>");
+                document.write(j + " * " + i + " = " + i*j);
+                document.write("</td>");
+            }
+            document.write("</tr>");
+        }
+    </script>
+</table>
+</body>
+</html>

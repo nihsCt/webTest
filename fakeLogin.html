@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="login.js"></script>
+
+    <style>
+        body {
+            background-color: #383b43
+        }
+
+        h2, div, label {
+            color: ghostwhite;
+        }
+        div.form-group{
+            padding: 15px;;
+        }
+    </style>
+
+
+    <title>Fake Login</title>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <button class="btn btn-primary navbar-right navbar-btn" onclick="location.href='signUp.html'"><span class="glyphicon glyphicon-user"></span> 註冊
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section class="container">
+    <div class="col-sm-4 col-xs-12"></div>
+    <div class="col-sm-4 col-xs-12" align="middle">
+        <h2 style="padding: 20px">登入</h2>
+
+        <form method="post" action="FakeLoginCheck.php" class="form-horizontal">
+
+            <div class="form-group">
+                <label class="control-label col-sm-4 col-xs-12" for="username">Account:</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input class="form-control" name="username" id="username" type="text" placeholder="E-mail Address">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-4 col-xs-12" for="password">Password:</label>
+                <div class="col-sm-8 col-xs-12">
+                    <input class="form-control" name="password" id="password" type="password" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12">
+                <button type="reset" value="Reset" class="btn btn-default">Reset</button>
+                <button type="submit" id="Login" value="Login" class="btn btn-info">Login</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
+
