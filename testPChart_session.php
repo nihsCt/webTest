@@ -1,15 +1,15 @@
 <?php
-        $lie = 36;
-        $stand = 22;
-        $sit = 42;
+session_start();
 ?>
+<!---->
+
 
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Highcharts Example</title>
-
+<!---->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <style type="text/css">
         ${demo.css}
@@ -46,40 +46,51 @@
                     name: 'Brands',
                     colorByPoint: true,
                     data: [{
-                        name: 'Lie',
-                        y: <?php echo $lie;?>,
+                        name: 'S1',
+                        y: <?php echo $_SESSION['s1'];?>,
                         sliced: true,
                         selected: true
                     }, {
-                        name: 'Stand',
-                        y: <?php echo $stand;?>,
-
-                        selected: true
+                        name: 'S2',
+                        y: <?php echo $_SESSION['s2'];?>
                     }, {
-                        name: 'Sit',
-                        y: <?php echo $sit ?>
+                        name: 'S3',
+                        y: <?php echo $_SESSION['s3'];?>
+                    }, {
+                        name: 'S4',
+                        y: <?php echo $_SESSION['s4'];
+                        unset($_SESSION['s1']);
+                        unset($_SESSION['s2']);
+                        unset($_SESSION['s3']);
+                        unset($_SESSION['s4']);
+                        ?>
                     }]
                 }]
             });
         });
     </script>
+<!---->
+
+    <title>AJAX</title>
 </head>
 <body>
+<!---->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<!---->
 
-<form>
-    <label for="t1, h1">START:</label>
-    <input name="t1" id="t1" placeholder="t1">
-    <input name="h1" id="h1" placeholder="h1">
+<form method="GET" action="testPChart_Session_get.php">
+    <label for="t1, h1"></label>
+    <input name="t1" id="t1" placeholder="S1">
+    <input name="h1" id="h1" placeholder="S2">
     <br>
-    <label for="t2, h2">END:</label>
-    <input name="t2" id="t2" placeholder="t2">
-    <input name="h2" id="h2" placeholder="h2">
+    <label for="t2, h2"></label>
+    <input name="t2" id="t2" placeholder="S3">
+    <input name="h2" id="h2" placeholder="S4">
     <br>
-    <button type="button">Submit</button>
+    <button type="submit" id="submit">Submit</button>
 </form>
 <br>
 <div id="txtHint"><b>Person info will be listed here.</b></div>
