@@ -4,30 +4,24 @@ session_start();
 $username = "START";
 /*
 $connect = mysqli_connect($db_hostname, $db_username, $db_password, $db_name) or die("Connect fail");
-
 if (mysqli_connect_errno()) {
     echo "MySQLi Connection was not established: " . mysqli_connect_error();
     $username = "SQL_Fail";
 }else {
-
     if ($_SESSION['user_email'] != "") {
         $email = $_SESSION['user_email'];
-
         //SET QUERY
         $sql = "Select * from user where Account='$email'";
         //SET QUERY
-
         mysqli_query($connect, 'SET CHARACTER SET big5');
         mysqli_query($connect, "SET collation_conncet = big5_chinese_ci");
         $result = mysqli_query($connect, $sql);
-
         if (mysqli_num_rows($result) > 0) {
 	    $row = mysqli_fetch_row($result);
 	    $username = $row[2];
 	    if($username == "") $username="UNSET";
         }
 	else $username = "SQLFAIL";
-
     } else $username = "NO_SESSION";
 }
 $_SESSION['username']=$username;
@@ -57,7 +51,7 @@ $_SESSION['username']=$username;
     <style type="text/css">
         ${demo.css}
     </style>
-    <title>IED115</title>
+    <title>TestChart</title>
     <script type="text/javascript">
         $(function () {
             Highcharts.chart('container2', {
@@ -113,30 +107,29 @@ $_SESSION['username']=$username;
 
     <script type="text/javascript">
         $(function () {
-
             Highcharts.setOptions({
                 global: {
                     useUTC: false
                 }
             });
-
             // Create the chart
             Highcharts.stockChart('container1', {
                 chart: {
-                    events: {
-                        load: function () {
+                    /*
+                     events: {
+                     load: function () {
 
-                            // set up the updating of the chart each second
-                            //var series = this.series[0];
-                            setInterval(function () {
-                                var x = (new Date()).getTime(), // current time
-                                    y = Math.round(Math.random() * 2);
-                                series.addPoint([x, y], true, true);
-                            }, 1000);
-                        }
-                    }
+                     // set up the updating of the chart each second
+                     //var series = this.series[0];
+                     setInterval(function () {
+                     var x = (new Date()).getTime(), // current time
+                     y = Math.round(Math.random() * 2);
+                     series.addPoint([x, y], true, true);
+                     }, 1000);
+                     }
+                     }
+                     */
                 },
-
                 rangeSelector: {
                     buttons: [{
                         count: 1,
@@ -155,42 +148,53 @@ $_SESSION['username']=$username;
                         text: 'All'
                     }],
                     inputEnabled: false,
-                    selected: 0
+                    selected: 1
                 },
-
                 title: {
                     text: 'test '
-
                 },
-
                 exporting: {
                     enabled: false
                 },
-
                 series: [{
                     name: 'Status',
                     data: (function () {
                         // generate an array of random data
-                        var data = [],
-                            time = (new Date()).getTime(),
-                            i;
+                        var data = [];
+                        /*
+                         //var time = (new Date()).getTime();
+                         //var time = (new Date()).getTime();
+                         var time = (new Date("2017-02-15 14:25:10")).getTime();
+                         var i;
+                         for (i = -99; i <= 0; i += 1) {
+                         data.push([
+                         time + i * 86400000,
+                         Math.round(Math.random() * 2)
+                         ]);
+                         }
+                         */
+                        <?php
+                        $timestamp = '2017-02-15 14:25:10';
+                        date_default_timezone_set("Asia/Taipei");
+                        $timestamp = date(strtotime($timestamp)) * 1000;
+                        for ($i = 0; $i < 500; $i++) {
+                            $status = $i%3;
+                            /*
 
-                        for (i = -9999; i <= 0; i += 1) {
-                            data.push([
-                                time + i * 86400000,
+                            $timestamp = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
+                            $timestamp = $timestamp->getTimestamp();
 
-                                Math.round(Math.random() * 2)
+                            */
+                            // generate an array of random data
 
-                            ]);
+                            echo "data.push([" . ($timestamp + $i * 24 * 60 *60000) . "," . $status . "]); ";
                         }
+                        ?>
                         return data;
                     }())
                 }]
             });
-
         });
-
-
     </script>
     <script type="text/javascript">
         $(function () {
@@ -256,7 +260,6 @@ $_SESSION['username']=$username;
                     pointPlacement: 0.2,
                     yAxis: 1
                 }, {
-
                     name: 'Fall down',
                     color: 'rgba(186,60,61,.9)',
                     data: [203.6, 198.8, 208.5],
@@ -276,12 +279,9 @@ $_SESSION['username']=$username;
     <script>
         // Get the Sidenav
         var mySidenav = document.getElementById("mySidenav");
-
         // Get the DIV with overlay effect
         var overlayBg = document.getElementById("myOverlay");
-
         // Toggle between showing and hiding the sidenav, and add overlay effect
-
         function w3_open() {
             if (mySidenav.style.display === 'block') {
                 mySidenav.style.display = 'none';
@@ -291,14 +291,11 @@ $_SESSION['username']=$username;
                 overlayBg.style.display = "block";
             }
         }
-
         // Close the sidenav with the close button
-
         function w3_close() {
             mySidenav.style.display = "none";
             overlayBg.style.display = "none";
         }
-
     </script>
 </head>
 
@@ -389,17 +386,13 @@ $_SESSION['username']=$username;
 
     <!--
     <div class="w3-row-padding w3-margin-bottom">
-
           <div class=" w3-half w3-container w3-padding-16">
         <h5>General States</h5>
          <div id="content"></div>
-
         <p><img src="pie.php"></p>
       <hr>
     </div>
-
     </div>
-
       <!-- End page content -->
 
 

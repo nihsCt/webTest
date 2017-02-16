@@ -9,56 +9,6 @@
         ${demo.css}
     </style>
 
-    <script type="text/javascript">
-        $(function () {
-            Highcharts.chart('container', {
-                chart: {
-                    plotBackgroundColor: null,
-                    plotBorderWidth: null,
-                    plotShadow: false,
-                    type: 'pie'
-                },
-                title: {
-                    text: 'Browser market shares January, 2015 to May, 2015'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                },
-                plotOptions: {
-                    pie: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                            }
-                        }
-                    }
-                },
-                series: [{
-                    name: 'Brands',
-                    colorByPoint: true,
-                    data: [{
-                        name: 'Lie',
-                        y: <?php echo $statusOne?>,
-                        sliced: true,
-                        selected: true
-                    }, {
-                        name: 'Stand',
-                        y: <?php echo $statusTwo;?>
-                    }, {
-                        name: 'Sit',
-                        y: <?php echo $statusThree; ?>
-                    }, {
-                        name: 'Sit',
-                        y: <?php echo $statusFour; ?>
-                    }]
-                }]
-            });
-        });
-    </script>
     <script>
         function giveTime() {
             var t1 = document.getElementById("t1").value;
@@ -98,12 +48,12 @@
 
 <form>
     <label for="t1, h1">START:</label>
-    <input name="t1" id="t1" placeholder="t1">
-    <input name="h1" id="h1" placeholder="h1">
+    <input name="t1" id="t1" VALUE="1" placeholder="t1">
+    <input name="h1" id="h1" VALUE="2" placeholder="h1">
     <br>
     <label for="t2, h2">END:</label>
-    <input name="t2" id="t2" placeholder="t2">
-    <input name="h2" id="h2" placeholder="h2">
+    <input name="t2" id="t2" VALUE="3" placeholder="t2">
+    <input name="h2" id="h2" VALUE="4" placeholder="h2">
     <br>
     <button type="button" onclick="giveTime()">Submit</button>
 </form>

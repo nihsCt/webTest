@@ -5,10 +5,11 @@ $statusThree = 0;
 $statusFour = 0;
 
 
-$minDate = $_GET['t1'];
-$minNumber = sprintf("%02d", $_GET['h1']);
-$maxDate = $_GET['t2'];
-$maxNumber = sprintf("%02d", $_GET['h2']);
+$statusOne = intval($_GET['t1']);
+$statusTwo = sprintf("%02d", $_GET['h1']);
+$statusThree = $_GET['t2'];
+$statusFour = sprintf("%02d", $_GET['h2']);
+
 /*
 
 $link = mysqli_connect($db_hostname, $db_username, $db_password, $db_name) or die("Connect fail");
@@ -42,6 +43,6 @@ if ($result = mysqli_query($link, $sql)) {
 }
 mysqli_close($link);
 */
-
+echo $statusOne.$statusTwo.$statusThree.$statusFour;
 
 ?>

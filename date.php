@@ -9,8 +9,11 @@ echo $a;
 $d = DateTime::createFromFormat('Y-m-d H:i:s', $date);
 echo "   ".$d->getTimestamp();
 
+echo " ".time()*1000;
+
 ?>
 
 <script>
     alert((new Date()).getTime());
 </script>
+<title>Test Date</title>
